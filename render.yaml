@@ -3,7 +3,7 @@ services:
     name: sfbiz-backend
     env: python
     plan: free
-    rootDir: SFBizbck
+    # Removed rootDir since we're already in the correct directory
     buildCommand: pip install -r requirements-production.txt
     startCommand: gunicorn app:app --host 0.0.0.0 --port $PORT
     envVars:
