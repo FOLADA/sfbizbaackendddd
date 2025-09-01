@@ -1,0 +1,17 @@
+# Railway deployment configuration
+# Place this in your backend root directory
+
+# Build command
+build = "pip install -r requirements-production.txt"
+
+# Start command  
+start = "gunicorn --bind 0.0.0.0:$PORT app:app"
+
+# Health check
+healthcheck = "/"
+
+# Environment variables needed:
+# SECRET_KEY=your_secret_key
+# OPENAI_API_KEY=your_openai_key (optional)
+# GOOGLE_MAPS_API_KEY=your_maps_key (optional)
+# FRONTEND_URL=https://your-frontend-domain.vercel.app

@@ -1,0 +1,20 @@
+services:
+  - type: web
+    name: sfbiz-backend
+    env: python
+    plan: free
+    rootDir: SFBizbck
+    buildCommand: pip install -r requirements-production.txt
+    startCommand: gunicorn app:app --host 0.0.0.0 --port $PORT
+    envVars:
+      - key: SECRET_KEY
+        generateValue: true
+      - key: FLASK_ENV
+        value: production
+      - key: FRONTEND_URL
+        value: https://your-frontend-name.vercel.app
+    # Uncomment and add your API keys if needed:
+    # - key: OPENAI_API_KEY
+    #   value: sk-your-openai-key-here
+    # - key: GOOGLE_MAPS_API_KEY
+    #   value: your-google-maps-key-here
